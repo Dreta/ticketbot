@@ -1,0 +1,135 @@
+{
+  "token": "edit me",
+  "guildId": 100000000,
+  "accentColor": "3746c9",
+  "errorColor": "ff0000",
+  "deleteMessages": true,
+  "commandPrefix": "!",
+  "botCommandsChannel": 0,
+  "ticket": {
+    "type": {
+      "title": "Please select the type of your ticket.",
+      "format": "{NAME}: {DESCRIPTION}"
+    },
+    "title": {
+      "title": "Please enter the title of your ticket.",
+      "maxLength": 128
+    },
+    "end": {
+      "title": "Thank you for creating a new ticket!",
+      "description": "Support will be with you shortly."
+    },
+    "data": {
+      "title": "{TITLE}",
+      "openYes": "Yes",
+      "openNo": "No",
+      "description": "Author: {AUTHORNAME}#{AUTHORDISCRIM}\nChannel: #{CHANNEL}\nIs Open: {OPEN}\nSteps:\n{STEPS}\nAssignees:\n{ASSIGNEES}",
+      "step": "**{INDEX}. {STEPTITLE}**\n{STEPANSWER}",
+      "assigneesTitle": "Assignees",
+      "assignee": "**{INDEX}. ** {NAME}#{DISCRIM}"
+    },
+    "open": {
+      "titleOpen": "{USER} reopened this ticket!",
+      "titleClose": "{USER} closed this ticket!"
+    },
+    "assign": {
+      "titleAssign": "{USER} assigned {ASSIGNEE} to this ticket!",
+      "titleUnassign": "{USER} unassigned {ASSIGNEE} from this ticket!"
+    }
+  },
+  "channels": {
+    "categoryId": 100000000,
+    "channelFormat": "ticket-{NAMEDISCRIM}-{TICKETDISCRIM}",
+    "channelTopic": "This is the ticket for {NAME}#{DISCRIM}",
+    "manageFormat": "manage-{NAMEDISCRIM}",
+    "allowedRoles": [
+      100000000
+    ],
+    "permissions": [
+      "VIEW_CHANNEL",
+      "MESSAGE_ADD_REACTION",
+      "MESSAGE_WRITE",
+      "MESSAGE_TTS",
+      "MESSAGE_EMBED_LINKS",
+      "MESSAGE_ATTACH_FILES",
+      "MESSAGE_HISTORY",
+      "MESSAGE_MENTION_EVERYONE"
+    ]
+  },
+  "manage": {
+    "permissionError": "You must have the \"Ticket Bot Manager\" role or be the owner to use this command!",
+    "ticket": {
+      "select": {
+        "title": "Select a ticket to manage",
+        "description": "Please refer to the channel of the ticket to manage.\n(You can use `#channelname` to refer to a channel.)",
+        "error": "You must type in exactly #<channel>, and you can only refer to channels that exist and are linked to a ticket."
+      },
+      "openEmoji": "✅",
+      "closeEmoji": "❎",
+      "exitEmoji": "\uD83D\uDEAB",
+      "assigneesEmoji": "\uD83E\uDDD1\u200D\uD83D\uDCBC",
+      "exit": {
+        "title": "Goodbye!",
+        "description": ""
+      },
+      "assignees": {
+        "add": "\u2795",
+        "remove": "\u2796",
+        "exit": "\uD83D\uDEAB",
+        "assignUser": "Who do you want to assign? Please @mention that user.",
+        "unassignUser": "Who do you want to unassign? Please @mention that user.",
+        "mentionInvalid": "You must mention a valid user!"
+      }
+    }
+  },
+  "stepTypes": {
+    "errorTitle": "Error",
+    "deleteErrorMessages": true,
+    "deleteErrorMsgsDelay": 5,
+    "boolean": {
+      "yes": "✅",
+      "no": "❎",
+      "mustBeTrueMsg": "You must select Yes!",
+      "mustBeFalseMsg": "You must select No!",
+      "info": "You can react with {YES_EMOJI} to select yes, or {NO_EMOJI} to select no."
+    },
+    "double": {
+      "formatErrorMsg": "Please enter a valid floating-point number!",
+      "minMsg": "The minimum value you can enter is `{MIN}`!",
+      "maxMsg": "The maximum value you can enter is `{MAX}`!"
+    },
+    "integer": {
+      "formatErrorMsg": "Please enter a valid integer!",
+      "minMsg": "The minimum value you can enter is `{MIN}`!",
+      "maxMsg": "The maximum value you can enter is `{MAX}`!"
+    },
+    "list": {
+      "endEmoji": "\uD83D\uDD1A",
+      "deleteLastEmoji": "\uD83D\uDEAB",
+      "allowEmptyList": true,
+      "emptyListErrorMsg": "This list must not be empty!",
+      "deleteLastEmptyListErrorMsg": "You can not delete from an empty list!",
+      "lengthMsg": "You can only enter `{LENGTH}` items at most!",
+      "info": "You can send messages to add to this list, or react to {DELETE_LAST_EMOJI} to delete the last item and {END_EMOJI} to end.",
+      "listItemsFormat": "Items: \n{ITEMS}",
+      "listItemFormat": "{INDEX}. {ITEM}",
+      "listEmptyFormat": "Empty"
+    },
+    "string": {
+      "lengthMsg": "You can only enter `{LENGTH}` characters at most!"
+    },
+    "selection": {
+      "optionsMsg": "Available options:",
+      "optionFormat": "{EMOTE}: {MESSAGE}",
+      "one": {
+        "info": "You can react to this message with emojis to select an option."
+      },
+      "multi": {
+        "endEmoji": "\uD83D\uDD1A",
+        "info": "You can react/unreact to this message to select/unselect an option, and react to {EMOTE} to end.",
+        "emptyListErrorMsg": "You must select at least one option!",
+        "lengthMsg": "You can only enter `{LENGTH}` items at most!"
+      }
+    }
+  }
+}

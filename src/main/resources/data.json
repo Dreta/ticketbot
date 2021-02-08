@@ -1,0 +1,272 @@
+{
+  "tickets": [],
+  "ticketTypes": [
+    {
+      "name": "Hissue",
+      "description": "Hissue",
+      "emoji": "\uD83C\uDDE6",
+      "steps": [
+        {
+          "title": "Step 1",
+          "description": "Boolean",
+          "type": "dev.dreta.ticketbot.data.types.BooleanStepType",
+          "options": {}
+        }
+      ]
+    },
+    {
+      "name": "Issue",
+      "description": "Wissue",
+      "emoji": "\uD83D\uDC1B",
+      "steps": [
+        {
+          "title": "Step 1",
+          "description": "Boolean, must be true",
+          "type": "dev.dreta.ticketbot.data.types.BooleanStepType",
+          "options": {
+            "mustBeTrue": true
+          }
+        },
+        {
+          "title": "Step 2",
+          "description": "Boolean, must be false",
+          "type": "dev.dreta.ticketbot.data.types.BooleanStepType",
+          "options": {
+            "mustBeFalse": true
+          }
+        },
+        {
+          "title": "Step 3",
+          "description": "Double, min -100, max 100",
+          "type": "dev.dreta.ticketbot.data.types.DoubleStepType",
+          "options": {
+            "min": -100,
+            "max": 100
+          }
+        },
+        {
+          "title": "Step 4",
+          "description": "Integer, min -100, max 100",
+          "type": "dev.dreta.ticketbot.data.types.IntegerStepType",
+          "options": {
+            "min": -100,
+            "max": 100
+          }
+        },
+        {
+          "title": "Step 5",
+          "description": "Multi Select, allow empty list = false, options = see for yourself, max length 2, emoji = true",
+          "type": "dev.dreta.ticketbot.data.types.MultiSelectStepType",
+          "options": {
+            "maximumLength": 2,
+            "allowEmptyList": false,
+            "emoji": true,
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            }
+          }
+        },
+        {
+          "title": "Step 6",
+          "description": "Multi Select, allow empty list = false, options = see for yourself, max length 2, emoji = false",
+          "type": "dev.dreta.ticketbot.data.types.MultiSelectStepType",
+          "options": {
+            "maximumLength": 2,
+            "allowEmptyList": false,
+            "emoji": false,
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            }
+          }
+        },
+        {
+          "title": "Step 7",
+          "description": "Single Select, options = see for yourself, emoji = true",
+          "type": "dev.dreta.ticketbot.data.types.SingleSelectStepType",
+          "options": {
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            },
+            "emoji": true
+          }
+        },
+        {
+          "title": "Step 8",
+          "description": "Single Select, options = see for yourself, emoji = false",
+          "type": "dev.dreta.ticketbot.data.types.SingleSelectStepType",
+          "options": {
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            },
+            "emoji": false
+          }
+        },
+        {
+          "title": "Step 9",
+          "description": "String, max length = 20",
+          "type": "dev.dreta.ticketbot.data.types.StringStepType",
+          "options": {
+            "maximumLength": 20
+          }
+        },
+        {
+          "title": "Step 10",
+          "description": "List, max length 3",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {
+            "maximumLength": "3"
+          }
+        },
+        {
+          "title": "Step 11",
+          "description": "List, allow empty list = false",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {
+            "allowEmptyList": false
+          }
+        },
+        {
+          "title": "Step 12",
+          "description": "List, default",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {}
+        }
+      ]
+    },
+    {
+      "name": "Bissue",
+      "description": "Bissue",
+      "emoji": "\uD83D\uDD21",
+      "steps": [
+        {
+          "title": "Step 1",
+          "description": "Boolean, must be true",
+          "type": "dev.dreta.ticketbot.data.types.BooleanStepType",
+          "options": {
+            "mustBeTrue": true
+          }
+        },
+        {
+          "title": "Step 2",
+          "description": "Boolean, must be false",
+          "type": "dev.dreta.ticketbot.data.types.BooleanStepType",
+          "options": {
+            "mustBeFalse": true
+          }
+        },
+        {
+          "title": "Step 3",
+          "description": "Double, min -100, max 100",
+          "type": "dev.dreta.ticketbot.data.types.DoubleStepType",
+          "options": {
+            "min": -100,
+            "max": 100
+          }
+        },
+        {
+          "title": "Step 4",
+          "description": "Integer, min -100, max 100",
+          "type": "dev.dreta.ticketbot.data.types.IntegerStepType",
+          "options": {
+            "min": -100,
+            "max": 100
+          }
+        },
+        {
+          "title": "Step 5",
+          "description": "List, max length 3",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {
+            "maximumLength": "3"
+          }
+        },
+        {
+          "title": "Step 6",
+          "description": "List, allow empty list = false",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {
+            "allowEmptyList": false
+          }
+        },
+        {
+          "title": "Step 7",
+          "description": "List, default",
+          "type": "dev.dreta.ticketbot.data.types.ListStepType",
+          "options": {}
+        },
+        {
+          "title": "Step 8",
+          "description": "Multi Select, allow empty list = false, options = see for yourself, max length 2, emoji = true",
+          "type": "dev.dreta.ticketbot.data.types.MultiSelectStepType",
+          "options": {
+            "maximumLength": 2,
+            "allowEmptyList": false,
+            "emoji": true,
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            }
+          }
+        },
+        {
+          "title": "Step 9",
+          "description": "Multi Select, allow empty list = false, options = see for yourself, max length 2, emoji = false",
+          "type": "dev.dreta.ticketbot.data.types.MultiSelectStepType",
+          "options": {
+            "maximumLength": 2,
+            "allowEmptyList": false,
+            "emoji": false,
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            }
+          }
+        },
+        {
+          "title": "Step 10",
+          "description": "Single Select, options = see for yourself, emoji = true",
+          "type": "dev.dreta.ticketbot.data.types.SingleSelectStepType",
+          "options": {
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            },
+            "emoji": true
+          }
+        },
+        {
+          "title": "Step 11",
+          "description": "Single Select, options = see for yourself, emoji = false",
+          "type": "dev.dreta.ticketbot.data.types.SingleSelectStepType",
+          "options": {
+            "options": {
+              "\uD83C\uDDF8": "Sandwich",
+              "\uD83C\uDDE6": "Arsenal",
+              "\uD83C\uDDF4": "Do you know?"
+            },
+            "emoji": false
+          }
+        },
+        {
+          "title": "Step 12",
+          "description": "String, max length = 20",
+          "type": "dev.dreta.ticketbot.data.types.StringStepType",
+          "options": {
+            "maximumLength": 20
+          }
+        }
+      ]
+    }
+  ]
+}
