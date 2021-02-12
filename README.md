@@ -34,7 +34,7 @@ mvn package
 
 - [ ] Extensions that add pre-built ticket step types. I want a step type that parses a GitHub project!
 - [ ] Add milestones.
-- [ ] Squash bugs
+- [ ] Squash bugs.
 
 ## License
 
@@ -59,4 +59,4 @@ along with Ticket Bot.  If not, see <https://www.gnu.org/licenses/>.
 ## At last
 
 <a href="https://patreon.com/Dreta"><img align="left" alt="Dreta | Patreon" width="32px" src="https://image.flaticon.com/icons/svg/2111/2111548.svg" />
-Buy me a cup o' coffee!</a>
+If you want to, please buy me a cup o' coffee!</a>
