@@ -30,6 +30,7 @@ import dev.dreta.ticketbot.data.Ticket;
 import dev.dreta.ticketbot.data.TicketStepType;
 import dev.dreta.ticketbot.data.TicketType;
 import dev.dreta.ticketbot.data.types.*;
+import dev.dreta.ticketbot.extensions.ExtensionLoader;
 import dev.dreta.ticketbot.utils.Configuration;
 import dev.dreta.ticketbot.utils.DataConfiguration;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -38,6 +39,8 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 
 import javax.security.auth.login.LoginException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -59,6 +62,7 @@ public class TicketBot {
     public static Configuration data;
     public static JDA jda;
     public static Gson gson;
+    public static ExtensionLoader extLoader;
 
     public static List<Class<? extends TicketStepType<?>>> stepTypes = new ArrayList<>();
 
@@ -91,6 +95,17 @@ public class TicketBot {
 
         System.out.println("Loading data...");
         loadAll();
+
+        System.out.println("Loading extensions...");
+
+        File extensionsDir = new File("extensions").getAbsoluteFile();
+        if (!extensionsDir.exists() && !extensionsDir.mkdirs()) {
+            TicketBot.jda.shutdown();
+            throw new RuntimeException(new IOException("Failed to create extensions directory."));
+        }
+        extLoader = new ExtensionLoader(extensionsDir);
+
+        // TODO Actually load the extensions here
 
         // Add shutdown hook for saving
         Thread shutdownSaveThread = new Thread(TicketBot::saveAll);
