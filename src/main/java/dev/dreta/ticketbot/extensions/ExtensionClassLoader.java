@@ -35,15 +35,15 @@ public class ExtensionClassLoader extends URLClassLoader {
     @Getter
     private final Map<String, Class<?>> classes = new ConcurrentHashMap<>();
     @Getter
-    private Extension extension;
-    private JarFile jar;
-    private Manifest manifest;
+    private final Extension extension;
+    private final JarFile jar;
+    private final Manifest manifest;
     @Getter
-    private URL url;
+    private final URL url;
     @Getter
-    private File file;
+    private final File file;
     @Getter
-    private Class<? extends Extension> mainClass;
+    private final Class<? extends Extension> mainClass;
 
     public ExtensionClassLoader(File file) throws Exception {
         super(new URL[]{file.toURI().toURL()}, TicketBot.class.getClassLoader());
