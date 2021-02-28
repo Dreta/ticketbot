@@ -21,6 +21,7 @@ package dev.dreta.ticketbot.utils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import dev.dreta.ticketbot.TicketBot;
+import dev.dreta.ticketbot.extensions.Extension;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -107,6 +108,16 @@ public class Configuration {
      */
     public void load(String from) {
         load(from, TicketBot.class, LOCAL);
+    }
+
+    /**
+     * Load this configuration from an extension.
+     *
+     * @param from The file to read from
+     * @param extension Who are you?
+     */
+    public void load(String from, Extension extension) {
+        load(from, extension.getClass(), extension.getDataDir());
     }
 
     /**
