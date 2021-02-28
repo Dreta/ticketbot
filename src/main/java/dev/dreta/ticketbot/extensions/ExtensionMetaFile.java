@@ -93,22 +93,6 @@ public class ExtensionMetaFile {
     }
 
     /**
-     * Get the dependencies of this extension.
-     * The dependencies will load before this extension loads
-     * and an error will be thrown if the dependency isn't present.
-     * Returns an empty array if no dependencies are specified.
-     *
-     * @return -
-     */
-    @NotNull
-    public String[] dependencies() {
-        if (!config.has("dependencies")) {
-            return new String[0];
-        }
-        return gson.fromJson(config.getAsJsonArray("dependencies"), String[].class);
-    }
-
-    /**
      * Get the URL of this extension, because why not?
      *
      * @return -

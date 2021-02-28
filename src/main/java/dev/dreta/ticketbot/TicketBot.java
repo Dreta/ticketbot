@@ -41,6 +41,7 @@ import net.dv8tion.jda.api.entities.MessageChannel;
 import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -66,7 +67,10 @@ public class TicketBot {
 
     public static List<Class<? extends TicketStepType<?>>> stepTypes = new ArrayList<>();
 
-    public static void main(String[] args) throws LoginException, InterruptedException {
+    public static void main(String[] args) throws LoginException,
+            InterruptedException, InvocationTargetException,
+            InstantiationException, IllegalAccessException,
+            IOException {
         gson = new Gson();
 
         System.out.println("Loading configuration...");
@@ -103,9 +107,11 @@ public class TicketBot {
             TicketBot.jda.shutdown();
             throw new RuntimeException(new IOException("Failed to create extensions directory."));
         }
-        extLoader = new ExtensionLoader(extensionsDir);
 
-        // TODO Actually load the extensions here
+        extLoader = new ExtensionLoader(extensionsDir);
+        for (File ext : extLoader.getAvailableExtensions()) {
+            extLoader.enableExtension(extLoader.getOrCreateLoader(ext));
+        }
 
         // Add shutdown hook for saving
         Thread shutdownSaveThread = new Thread(TicketBot::saveAll);

@@ -7,9 +7,10 @@ import lombok.Getter;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.security.CodeSigner;
 import java.security.CodeSource;
 import java.util.HashSet;
 import java.util.Map;
@@ -25,15 +26,13 @@ import java.util.jar.Manifest;
  * between extensions.
  */
 public class ExtensionClassLoader extends URLClassLoader {
-    @Getter
-    private static final Set<ExtensionClassLoader> loaders = new HashSet<>();
 
     static {
         ClassLoader.registerAsParallelCapable();
     }
 
     @Getter
-    private final Map<String, Class<?>> classes = new ConcurrentHashMap<>();
+    private final Map<String, Class<?>> classes = new ConcurrentHashMap<>(); // This also acts as a cache for classes in other extensions
     @Getter
     private final Extension extension;
     private final JarFile jar;
@@ -44,14 +43,17 @@ public class ExtensionClassLoader extends URLClassLoader {
     private final File file;
     @Getter
     private final Class<? extends Extension> mainClass;
+    @Getter
+    private final ExtensionLoader loader;
 
-    public ExtensionClassLoader(File file) throws Exception {
+    public ExtensionClassLoader(File file, ExtensionLoader loader) throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
         super(new URL[]{file.toURI().toURL()}, TicketBot.class.getClassLoader());
 
         jar = new JarFile(file);
         manifest = jar.getManifest();
         url = file.toURI().toURL();
         this.file = file;
+        this.loader = loader;
 
         String mainClassName = manifest.getMainAttributes().getValue(Attributes.Name.MAIN_CLASS);
         if (mainClassName == null) {
@@ -73,7 +75,7 @@ public class ExtensionClassLoader extends URLClassLoader {
             throw new IllegalStateException("Main class \"" + mainClassName + "\" must contain a public constructor without arguments.");
         }
 
-        loaders.add(this);
+        loader.getLoaders().add(this);
     }
 
     @Override
@@ -86,7 +88,7 @@ public class ExtensionClassLoader extends URLClassLoader {
         Class<?> result = classes.get(name);
         if (result == null) {
             // This class isn't available in our own extension. Let's check other extensions:
-            for (ExtensionClassLoader loader : loaders) {
+            for (ExtensionClassLoader loader : loader.getLoaders()) {
                 if (loader != this && loader.getExtension() != null && loader.getExtension().isEnabled() && loader.getClasses().containsKey(name)) {
                     result = loader.getClasses().get(name);
                 }
@@ -94,7 +96,7 @@ public class ExtensionClassLoader extends URLClassLoader {
 
             if (result == null) {
                 // This class isn't loaded yet. We will load it in our component now.
-                String path = name.replace('.', '/').concat(".class");
+                String path = name.replace('.', '/') + ".class";
                 JarEntry entry = jar.getJarEntry(path);
 
                 if (entry != null) {

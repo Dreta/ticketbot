@@ -20,6 +20,7 @@ package dev.dreta.ticketbot.extensions;
 
 import com.google.gson.JsonParser;
 import dev.dreta.ticketbot.TicketBot;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,11 +32,12 @@ public abstract class Extension {
     @Getter
     private final File dataDir;
     @Getter
-    private final boolean enabled;
-    @Getter
     private final ExtensionMetaFile meta;
     @Getter
-    @Setter
+    @Setter(AccessLevel.PACKAGE)
+    private boolean enabled;
+    @Getter
+    @Setter(AccessLevel.PACKAGE)
     private File file;
 
     protected Extension() throws IOException {
