@@ -22,6 +22,9 @@ may want to use tickets for reports about cheating.
 
   ![Discord embed sent by TicketBot detailing a ticket showing the author, the channel, whether the ticket is open or not, the steps of the ticket and the assignees.](images/img3.png)
 
+* Extensions. Because I am lazy, and I don't want to add any features, I implemented an extension system so other people
+  can do the work for me.
+
 ## Build
 
 Ticket Bot builds with Maven 3.
@@ -30,9 +33,14 @@ Ticket Bot builds with Maven 3.
 mvn package
 ```
 
+## Extensions
+
+You can check out [Dreta](https://github.com/Dreta)/[**ticketbot-example**](https://github.com/Dreta/ticketbot-example)
+for this.
+
 ## TODO
 
-- [ ] Extensions that add pre-built ticket step types. I want a step type that parses a GitHub project!
+- [x] Extensions that add pre-built ticket step types. I want a step type that parses a GitHub project!
 - [ ] Add milestones.
 - [ ] Squash bugs.
 

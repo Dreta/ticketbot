@@ -46,7 +46,7 @@ import java.util.function.Consumer;
         name = "Single Selection",
         description = "Allows the user to select one from a range of options. " +
                 "Please enter a list of strings formatted like EMOJI<Space>MESSAGE.",
-        emoji = "negative_squared_cross_mark"
+        emoji = ""
 )
 public class SingleSelectStepType extends ListenerAdapter implements TicketStepType<String> {
     private TextChannel channel;

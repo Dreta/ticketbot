@@ -41,7 +41,7 @@ import java.util.function.Consumer;
 @StepType(
         name = "Boolean",
         description = "Represents a Yes/No answer from the user.",
-        emoji = "ballot_box_with_check"
+        emoji = ""
 )
 public class BooleanStepType extends ListenerAdapter implements TicketStepType<Boolean> {
     private TextChannel channel;

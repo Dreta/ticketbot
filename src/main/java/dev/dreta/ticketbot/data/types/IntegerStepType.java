@@ -39,7 +39,7 @@ import java.util.function.Consumer;
 @StepType(
         name = "Integer",
         description = "Represents an integer that the user can type in.",
-        emoji = "six"
+        emoji = ""
 )
 public class IntegerStepType extends ListenerAdapter implements TicketStepType<Integer> {
     private TextChannel channel;

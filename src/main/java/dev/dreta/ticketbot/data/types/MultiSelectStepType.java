@@ -51,8 +51,7 @@ import java.util.function.Consumer;
         name = "Multiple Selection",
         description = "Allows the user to select multiple options from a range of options. " +
                 "Please enter a list of strings formatted like EMOJI<Space>MESSAGE.",
-        emoji = "bookmark_tabs"  // To be honest, these emojis are all pretty stupid.
-        // I need to take some time to make them better.
+        emoji = ""
 )
 public class MultiSelectStepType extends ListenerAdapter implements TicketStepType<List<String>> {
     private final List<String> currentResponse = new ArrayList<>();

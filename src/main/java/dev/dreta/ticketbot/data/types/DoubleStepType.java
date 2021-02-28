@@ -39,7 +39,7 @@ import java.util.function.Consumer;
 @StepType(
         name = "Double",
         description = "Represents a floating-point number that the user can type in.",
-        emoji = "three"
+        emoji = ""
 )
 public class DoubleStepType extends ListenerAdapter implements TicketStepType<Double> {
     private TextChannel channel;

@@ -44,7 +44,7 @@ import java.util.function.Consumer;
 @StepType(
         name = "List",
         description = "Represents a list of text that the user can type in.",
-        emoji = "clipboard"
+        emoji = ""
 )
 public class ListStepType extends ListenerAdapter implements TicketStepType<List<String>> {
     private TextChannel channel;
