@@ -97,9 +97,6 @@ public class TicketBot {
         registerStepType(SingleSelectStepType.class);
         registerStepType(MultiSelectStepType.class);
 
-        System.out.println("Loading data...");
-        loadAll();
-
         System.out.println("Loading extensions...");
 
         File extensionsDir = new File("extensions").getAbsoluteFile();
@@ -112,6 +109,9 @@ public class TicketBot {
         for (File ext : extLoader.getAvailableExtensions()) {
             extLoader.enableExtension(extLoader.getOrCreateLoader(ext));
         }
+
+        System.out.println("Loading data...");
+        loadAll();
 
         // Add shutdown hook for saving
         Thread shutdownSaveThread = new Thread(TicketBot::saveAll);

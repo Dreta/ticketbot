@@ -19,6 +19,8 @@
 package dev.dreta.ticketbot.data;
 
 import com.google.gson.JsonObject;
+import dev.dreta.ticketbot.TicketBot;
+import dev.dreta.ticketbot.extensions.ExtensionClassLoader;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -74,6 +76,15 @@ public class TicketStep<T> {
                     (Class<TicketStepType<Object>>) Class.forName(j.get("type").getAsString()),
                     j.getAsJsonObject("options"));
         } catch (ClassNotFoundException e) {
+            // Try to find inside extensions instead
+            for (ExtensionClassLoader loader : TicketBot.extLoader.getLoaders()) {
+                try {
+                    return new TicketStep<>(j.get("title").getAsString(), j.get("description").getAsString(),
+                            (Class<TicketStepType<Object>>) loader.findClass(j.get("type").getAsString()),
+                            j.getAsJsonObject("options"));
+                } catch (ClassNotFoundException ignored) {
+                }
+            }
             throw new IllegalArgumentException("Couldn't find step type of " + j.get("type").getAsString() + ".");
         }
     }
