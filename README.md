@@ -40,7 +40,7 @@ for this.
 
 ## TODO
 
-- [ ] Extensions that add pre-built ticket step types. I want a step type that parses a GitHub project!
+- [x] Extensions that add pre-built ticket step types. I want a step type that parses a GitHub project!
 - [ ] Add milestones.
 - [ ] Squash bugs.
 
