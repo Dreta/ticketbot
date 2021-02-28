@@ -38,7 +38,7 @@ import java.util.function.Consumer;
 @StepType(
         name = "String",
         description = "Represents any text that the user can type in.",
-        emoji = "abcd"
+        emoji = ""
 )
 public class StringStepType extends ListenerAdapter implements TicketStepType<String> {
     private TextChannel channel;
