@@ -54,6 +54,9 @@ public class ExtensionClassLoader extends URLClassLoader {
         this.file = file;
 
         String mainClassName = manifest.getMainAttributes().getValue(Attributes.Name.MAIN_CLASS);
+        if (mainClassName == null) {
+            throw new IllegalStateException("You must specify the main class of your extension in the manifest!");
+        }
         try {
             Class<?> clazz = findClass(mainClassName);
             mainClass = clazz.asSubclass(Extension.class);
