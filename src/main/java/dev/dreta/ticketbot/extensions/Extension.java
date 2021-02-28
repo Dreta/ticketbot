@@ -23,6 +23,7 @@ import dev.dreta.ticketbot.TicketBot;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +41,8 @@ public abstract class Extension {
     @Setter(AccessLevel.PACKAGE)
     private File file;
 
-    protected Extension() throws IOException {
+    @SneakyThrows
+    protected Extension() {
         meta = new ExtensionMetaFile(
                 JsonParser.parseString(
                         new String(
